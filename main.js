@@ -33,22 +33,186 @@ solutionTwo(string);
 
 // 2. Repeatify: write a function called "Repeatify" that takes a string and a number
 // The number specifies how many times the string should be repeated
+let newString = '';
+
+let repeatifyFunction = (string, number) => {
+  return string.repeat(number);
+}
+
+repeatifyFunction("Rachel", 4)
 
 
 
+let repeatify = (string, number) => {
+  let newString = "";
+
+  for (let i = 0; i < number; i++) {
+    newString += string;
+  }
+
+  return newString;
+}
+
+repeatify('Rachel', 3)
 // 3. Largest Number: write a function that finds the largest integer within an array
+
+let largestNumber = (array) => {
+  let largest = array[0];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > largest) {
+      largest = array[i];
+    }
+  }
+  return largest;
+}
+
+largestNumber([1, 2, 3])
+
+
+// Es6
+
+let largestNumber = (theArray) => {
+  let largest = theArray[0];
+  theArray.forEach((number) => {
+    if (number > largest) {
+      largest = number;
+    }
+  })
+  return largest;
+}
+
+largestNumber([1,5,3])
 
 // 4. Odds/Evens: write a function that separates the odd and even numbers
 
+let oddEvens = (numbers) => {
+  let evens = "";
+  let odds = "";
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      evens += numbers[i];
+    } else {
+      odds += numbers[i];
+    }
+  }
+  return `${evens}, ${odds}`;
+}
+oddEvens([5,1,2,3,6])
+
+// Es6
+let oddEvens = (numbersArray) => {
+  let evens = '';
+  let odds = '';
+  numbersArray.forEach((number) => {
+    if (number % 2 === 0) {
+      evens += number;
+    } else {
+      odds += number;
+    }
+  })
+  return `${evens}, ${odds}`;
+}
+
+oddEvens([1,2,3,4,5]);
+
 // 5. Simple Array Sum: Given an array, find the sum of the integers
+let theNumbers = [1,2,3,4];
+
+let findSum = (array) => {
+  let sum = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
+findSum(theNumbers)
+
+
+// es6
+let findSum = (numbers) => {
+  let sum = 0;
+
+  numbers.forEach((number) => {
+    sum += number;
+  })
+  return sum;
+}
+findSum(theNumbers)
 
 // 6. isPrime: write a function to determine if a number is prime
+
+let isPrime = (number) => {
+  if (number === 2) {
+    return true;
+  } else if (number > 1) {
+    for (let i = 2; i < number; i++) {
+      if (number % i !== 0) {
+        return true;
+      } else if (number === 1 * i) {
+        return false;
+      } else {
+        return false;
+      }
+    }
+  }
+}
+
+isPrime(2)
 
 // 7. Largest difference: Find the greatest possible difference between two numbers in a set (all unique) of numbers
   // This is how you find the largest difference using the built-in JavaScript methods Math.max and Math.min
 
 
+  let findDifference = (numbersArray) => {
+    let largest = numbersArray[0];
+    let smallest = numbersArray[0];
+
+    numbersArray.forEach((number) => {
+      if (number > largest) {
+        largest = number;
+      }
+    });
+
+    numbersArray.forEach((numberTwo) => {
+      if (numberTwo < smallest) {
+        smallest = numberTwo;
+      }
+    })
+    return largest - smallest;
+  }
+
+  findDifference([9,1,2,4]);
+
 // 8. twoSum: Write a function called twoSum that given an array of integers and a target number, returns two array integers that add up to the target.
 
 
+let twoSum = (array, target) => {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (array[i] + array[j] === target) {
+        console.log(array[i], array[j]);
+      }
+    }
+  }
+}
+
+
+twoSum([1,2,3,4], 3);
+
 // 9. reverse a string
+
+let reverseString = (string) => {
+  let newString = '';
+
+  for (let i = string.length - 1; i >= 0; i--) {
+    newString += string[i];
+  }
+
+  return newString; 
+}
+
+reverseString('Rachel');
