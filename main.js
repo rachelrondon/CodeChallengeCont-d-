@@ -29,8 +29,6 @@ let solutionTwo = () => {
 solutionTwo(string);
 
 
-
-
 // 2. Repeatify: write a function called "Repeatify" that takes a string and a number
 // The number specifies how many times the string should be repeated
 let newString = '';
@@ -54,7 +52,7 @@ let repeatify = (string, number) => {
 }
 
 repeatify('Rachel', 3)
-// 3. Largest Number: write a function that finds the largest integer within an array
+// 3. Find The Largest Number: write a function that finds the largest integer within an array
 
 let largestNumber = (array) => {
   let largest = array[0];
@@ -163,7 +161,7 @@ let isPrime = (number) => {
 
 isPrime(2)
 
-// 7. Largest difference: Find the greatest possible difference between two numbers in a set (all unique) of numbers
+// 7. findDifference: Find the greatest possible difference between two numbers in a set (all unique) of numbers
   // This is how you find the largest difference using the built-in JavaScript methods Math.max and Math.min
 
 
@@ -212,7 +210,92 @@ let reverseString = (string) => {
     newString += string[i];
   }
 
-  return newString; 
+  return newString;
 }
 
 reverseString('Rachel');
+
+
+
+// 10. iterate over an array of numbers and print the sum of all of the numbers
+
+var numbers = [1,2,3,4,5];
+let sum = 0;
+
+numbers.forEach((number) => {
+    sum += number;
+})
+
+sum;
+
+// alternate version
+var numbers = [1,2,3,4,5];
+let sum = 0;
+let addNumbers = (number) => {
+  sum += number;
+}
+numbers.forEach(addNumbers);
+sum;
+
+
+// 11.  HackerRank - Simple Array Sum
+
+let simpleArraySum = (n, ar) => {
+  let sum = 0;
+  for (var i = 0; i < ar.length; i++) {
+    sum += ar[i];
+  }
+  console.log(sum);
+}
+
+simpleArraySum(6, [1,2,3,4,10,11])
+
+// format for HackerRank
+
+function simpleArraySum(ar) {
+    var sum = 0;
+    for (var i = 0; i < ar.length; i++) {
+        sum += ar[i];
+    }
+    return sum;
+}
+
+
+// 12. HackerRank: a very big sum
+// calculate and print the sum of elements in an array, keeping in mind that some of those integers may be quite largest
+
+function aVeryBigSum(ar) {
+  var sum = 0;
+
+  for (var i = 0; i < ar.length; i++) {
+    sum += ar[i];
+  }
+  return sum;
+}
+
+
+// 13. HackerRank: plus minus
+// calculate the fractions of its elements that are positive, negative, and are zeros
+
+function plusMinus(arr) {
+  let arrTotal = arr.length;
+  let positiveCount = 0;
+  let negativeCount = 0;
+  let zeroCount = 0;
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      zeroCount += 1;
+    } else if (arr[i] % 2 === 0) {
+      positiveCount += 1;
+    } else {
+      negativeCount += 1;
+    }
+  }
+  let newPostiveCount = positiveCount / arrTotal;
+  let newNegativeCount = negativeCount / arrTotal;
+  let newZeroCount = zeroCount / arrTotal;
+  return `${newPostiveCount}, ${newNegativeCount}, ${newZeroCount}`
+}
+
+plusMinus([-4, 3, -9, 0, 4, 1])
